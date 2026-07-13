@@ -1,16 +1,36 @@
-# React + Vite
+# Student Portfolio — React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A student portfolio web application built with React and Vite.
 
-Currently, two official plugins are available:
+## Routes
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+| Path | Page | Description |
+|------|------|-------------|
+| `/` | Home | About section and skills list |
+| `/projects` | Projects | List of projects with descriptions |
+| `/contact` | Contact | Contact form with controlled inputs |
+| `*` | 404 | Custom not-found page for unknown paths |
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Reusable components: Header, NavBar, About, Skills, Footer
+- Client-side routing with React Router v6 (no full page reloads)
+- `useState` for controlled form inputs, help tooltip toggle, and dark/light mode
+- Live character count on the contact form
+- Dark / Light theme toggle
+- Responsive layout
 
-## Expanding the Oxlint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- React 19
+- Vite
+- React Router v6
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
