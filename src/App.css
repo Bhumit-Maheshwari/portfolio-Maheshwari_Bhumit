@@ -1,0 +1,231 @@
+/* ─────────────────────────────────────────
+   App Layout
+───────────────────────────────────────── */
+.app-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ─────────────────────────────────────────
+   Header
+───────────────────────────────────────── */
+.header {
+  text-align: center;
+  padding: 60px 20px 40px;
+}
+
+.header h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+.header .subtitle {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #666;
+}
+
+.header .accent-line {
+  width: 50px;
+  height: 3px;
+  border-radius: 2px;
+  margin: 18px auto 0;
+}
+
+/* ─────────────────────────────────────────
+   NavBar
+───────────────────────────────────────── */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+  background: #fff;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar a {
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #555;
+  transition: background 0.2s, color 0.2s;
+}
+
+.navbar a:hover {
+  background: #f0f0f5;
+  color: #222;
+}
+
+.navbar a.active {
+  background: #2c3e66;
+  color: #fff;
+}
+
+/* ─────────────────────────────────────────
+   Section (shared)
+───────────────────────────────────────── */
+.section {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-radius: 10px;
+  padding: 32px 28px;
+  margin: 24px 0;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #222;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 32px;
+  height: 3px;
+  border-radius: 2px;
+  background: #4a6fa5;
+}
+
+/* ─────────────────────────────────────────
+   About
+───────────────────────────────────────── */
+.about-text {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.75;
+}
+
+/* ─────────────────────────────────────────
+   Skills
+───────────────────────────────────────── */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tag {
+  padding: 7px 16px;
+  background: #f3f4f8;
+  border: 1px solid #e2e4ea;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #3a3a4a;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.skill-tag:hover {
+  background: #e8eaf2;
+  border-color: #cdd0dc;
+}
+
+/* ─────────────────────────────────────────
+   Projects
+───────────────────────────────────────── */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  background: #fafbfd;
+  border: 1px solid #eef0f4;
+  border-radius: 8px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.project-card:hover {
+  border-color: #d0d4de;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.project-number {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #4a6fa5;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.project-name {
+  font-size: 0.93rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* ─────────────────────────────────────────
+   Footer
+───────────────────────────────────────── */
+.footer {
+  text-align: center;
+  padding: 32px 20px;
+  margin-top: 16px;
+  border-top: 1px solid #eee;
+  background: #fff;
+}
+
+.footer .footer-email {
+  font-size: 0.92rem;
+  color: #4a6fa5;
+  font-weight: 500;
+}
+
+.footer .footer-copy {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-top: 8px;
+}
+
+/* ─────────────────────────────────────────
+   Responsive
+───────────────────────────────────────── */
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .navbar {
+    gap: 4px;
+  }
+
+  .navbar a {
+    padding: 7px 12px;
+    font-size: 0.82rem;
+  }
+
+  .section {
+    padding: 24px 20px;
+    margin: 16px 0;
+  }
+
+  .app-wrapper {
+    padding: 0 12px;
+  }
+}
