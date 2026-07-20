@@ -307,6 +307,156 @@
 }
 
 /* ─────────────────────────────────────────
+   Spinner
+───────────────────────────────────────── */
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+  gap: 16px;
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid #e2e4ea;
+  border-top-color: #4a6fa5;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.app.dark .spinner {
+  border-color: #3a3c48;
+  border-top-color: #6b9bd2;
+}
+
+.spinner-text {
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.app.dark .spinner-text {
+  color: #666;
+}
+
+/* ─────────────────────────────────────────
+   Error Message
+───────────────────────────────────────── */
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 0;
+  gap: 12px;
+}
+
+.error-icon {
+  font-size: 2rem;
+}
+
+.error-text {
+  font-size: 0.9rem;
+  color: #c0392b;
+  text-align: center;
+}
+
+.app.dark .error-text {
+  color: #e74c3c;
+}
+
+/* ─────────────────────────────────────────
+   Search Bar
+───────────────────────────────────────── */
+.search-bar {
+  margin-bottom: 18px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: "Inter", sans-serif;
+  background: #fff;
+  color: #333;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.app.dark .search-bar input {
+  background: #1a1b23;
+  border-color: #3a3c48;
+  color: #d1d5db;
+}
+
+.search-bar input:focus {
+  border-color: #4a6fa5;
+}
+
+.no-results {
+  font-size: 0.9rem;
+  color: #999;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* ─────────────────────────────────────────
+   Repo Card (API repos)
+───────────────────────────────────────── */
+.repo-card {
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.repo-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.repo-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.repo-lang {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 3px 10px;
+  background: #eef2f8;
+  border-radius: 12px;
+  color: #4a6fa5;
+}
+
+.app.dark .repo-lang {
+  background: #2a3040;
+  color: #8db4e8;
+}
+
+.repo-stars {
+  font-size: 0.8rem;
+  color: #888;
+  white-space: nowrap;
+}
+
+.app.dark .repo-stars {
+  color: #777;
+}
+
+/* ─────────────────────────────────────────
    Contact Form
 ───────────────────────────────────────── */
 .help-row {

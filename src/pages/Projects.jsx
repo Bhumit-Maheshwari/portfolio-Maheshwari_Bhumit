@@ -1,35 +1,73 @@
+import { useState, useEffect } from "react";
+import Spinner from "../components/Spinner";
+import ErrorMessage from "../components/ErrorMessage";
+import RepoList from "../components/RepoList";
+
 function Projects() {
-  const projects = [
-    {
-      title: "Personal Blog Platform",
-      description: "A full-stack blog app with user authentication and markdown support.",
-    },
-    {
-      title: "Student Management System",
-      description: "CRUD application to manage student records with search and filter.",
-    },
-    {
-      title: "Weather Dashboard App",
-      description: "Real-time weather data display using a public API with location search.",
-    },
-  ];
+  const [repos, setRepos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [search, setSearch] = useState("");
+
+  function fetchRepos() {
+    setLoading(true);
+    setError(null);
+
+    fetch("https://api.github.com/repos/Bhumit-Maheshwari/portfolio-Maheshwari_Bhumit")
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to fetch repositories (status " + res.status + ")");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setRepos(data);
+      })
+      .catch((err) => {
+        setError(err.message);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }
+
+  useEffect(() => {
+    fetchRepos();
+  }, []);
+
+  const filteredRepos = repos.filter((repo) =>
+    repo.name.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <div className="page-container">
       <section className="section">
-        <h2 className="section-title">My Projects</h2>
+        <h2 className="section-title">GitHub Repositories</h2>
 
-        <div className="projects-list">
-          {projects.map((project, index) => (
-            <div className="project-card" key={project.title}>
-              <span className="project-number">{index + 1}</span>
-              <div>
-                <span className="project-name">{project.title}</span>
-                <p className="project-desc">{project.description}</p>
-              </div>
+        {loading && <Spinner />}
+
+        {error && <ErrorMessage message={error} onRetry={fetchRepos} />}
+
+        {!loading && !error && (
+          <>
+            <div className="search-bar">
+              <input
+                type="text"
+                placeholder="Search repositories..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
             </div>
-          ))}
-        </div>
+
+            {filteredRepos.length > 0 ? (
+              <RepoList data={filteredRepos} />
+            ) : (
+              <p className="no-results">
+                No repositories found matching &ldquo;{search}&rdquo;
+              </p>
+            )}
+          </>
+        )}
       </section>
     </div>
   );
